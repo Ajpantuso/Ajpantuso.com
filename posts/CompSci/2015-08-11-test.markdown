@@ -1,0 +1,12 @@
+-----
+title: TEST
+-----
+This is a test of markdown. I really don't know how it works so I'll be interested
+to see if I can manage it. This is an example of inserting code into a document.
+
+```
+sum :: Num a => [a] -> a
+sum = foldl' 0 (+)
+```
+---
+Hopefully that worked. Let us see.
