@@ -3,7 +3,10 @@
     <head>
         <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1" />
         <title>AJPantuso - TEST</title>
-        <link rel="stylesheet" href="../../css/default.css" />
+        <link rel="stylesheet" href="../../css/default.css">
+        <!--egg.js-->
+        <script type="text/javascript" src="https://cdn.rawgit.com/mikeflynn/egg.js/master/egg.min.js"></script>
+        <!--mathJax-->
         <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -11,49 +14,37 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <!-- Latest compiled JavaScript -->
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script type="text/javascript">
+            var workout = document.createElement("AUDIO");
+            workout.setAttribute("src","/images/workout.mp3");
+            var egg = new Egg("w,o,r,k,o,u,t", function() {workout.play();
+            }).listen();
+        </script>
     </head>
     <body>
-        <nav class="navbar navbar-inverse">
-          <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-              <a class="navbar-brand" href="../../index.html" style="font-family:monospace; color:#d9ebe7; font-size:32px;">
-                  <span style="font-weight: normal;">Andrew J. Pantuso</span></a>
-            </div>
-
-            <div class="collapse navbar-collapse" id="myNavbar">
-              <ul class="nav navbar-nav">
-                <li class="active"><a href="../../index.html">Home</a></li>
+        <div id="Head-nav" class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+        <div class="navbar-header">
+        <a class="navbar-brand" href="../../index.html" style="font-family:monospace; color:#d9ebe7; font-size:32px;">
+        <img src="../../images/test-logo.png" alt="Logo"></a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse navbar-menubuilder" id="myNavbar">
+            <ul class="nav navbar-nav navbar-center">
+                <li><a href="../../index.html">Home</a></li>
                 <li><a href="../../Mathematics.html">Math</a></li>
-                <li><a href="../../ComputerScience.html">Comp Sci</a></li>
+                <li><a href="../../ComputerScience.html">Computer Science</a></li>
                 <li><a href="../../links.html">Links</a></li>
                 <li><a href="../../about.html">About</a></li>
-              </ul>
-              <form class="navbar-form" role="search" method="get" action="http://google.com/search">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search">
-                    <span class="input-group-btn">
-                        <button type="submit" class="btn btn-default">
-                            <span class="glyphicon glyphicon-search">
-                                <span class="sr-only">Search...</span>
-                            </span>
-                        </button>
-                    </span>
+                    </ul>
                 </div>
-            </form>
             </div>
-          </div>
-      </nav>
+        </div>
+            </div>
       <div class="container">
+          <div class="jumbotron myBackground" style="margin-top:100px;">
             <h1>TEST</h1>
-            <div class="row">
-                <div class="col-sm-1">
-                </div>
-              <div class="col-sm-7" style="background-color:#f2f2f2; font-family:'Palatino Linotype',Book Antiqua',Palatino'serif;">
                   <div class="info">
     Posted on August 11, 2015
     
@@ -63,14 +54,11 @@
 <pre><code>sum :: Num a =&gt; [a] -&gt; a
 sum = foldl' 0 (+)</code></pre>
 <hr />
-<p>Hopefully that worked. Let us see.</p>
+<p>Hopefully that worked. Let us see. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-              </div>
-              <div class="col-sm-1">
-              </div>
-            </div>
+          </div>
       </div>
-              <nav class="navbar navbar-default">
+              <nav class="navbar navbar-default" id="myFooter">
                   <div class="container-fluid">
                     <div class="navbar-header">
                       <a class="navbar-brand" href="#"></a>

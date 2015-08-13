@@ -2,7 +2,7 @@
 title: Links
 ----
 
-##These are some links I find useful.##
+##These are some links I find useful:##
 
 1.[Haskell](https://www.haskell.org)
 
