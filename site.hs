@@ -15,6 +15,23 @@ main = hakyll $ do
         route   idRoute
         compile compressCssCompiler
 
+    match "fonts/*" $ do
+        route idRoute
+        compile copyFileCompiler
+
+    match "js/*" $ do
+        route idRoute
+        compile copyFileCompiler
+
+    match "js/*/*" $ do
+        route idRoute
+        compile copyFileCompiler
+
+    match "CNAME" $ do
+       route idRoute
+       compile copyFileCompiler
+
+
     match (fromList ["about.rst", "contact.markdown","links.markdown"]) $ do
         route   $ setExtension "html"
         compile $ pandocMathCompiler
@@ -69,10 +86,6 @@ main = hakyll $ do
                 >>= applyAsTemplate indexCtx
                 >>= loadAndApplyTemplate "templates/default.html" indexCtx
                 >>= relativizeUrls
-
-    match "CNAME" $ do
-       route idRoute
-       compile copyFileCompiler
 
     match "templates/*" $ compile templateCompiler
 
