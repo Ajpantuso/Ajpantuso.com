@@ -6,77 +6,96 @@
 -->
 <html>
 	<head>
-		<title>Andrew J Pantuso</title>
+		<title>2016-01-25-d3example</title>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<meta name="description" content="" />
-		<meta name="keywords" content="" />
+		<meta name="description" content />
+		<meta name="keywords" content />
 		<!--mathJax-->
 		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 		<!--egg.js-->
 		<script type="text/javascript" src="https://cdn.rawgit.com/mikeflynn/egg.js/master/egg.min.js"></script>
 		<script type="text/javascript">
 		var workout = document.createElement("AUDIO");
-		workout.setAttribute("src","/images/workout.mp3");
+		workout.setAttribute("src","images/workout.mp3");
 		var egg = new Egg("w,o,r,k,o,u,t", function() {workout.play();
 		}).listen();
 		</script>
 		<script type="text/javascript">
 		var egg = new Egg("d,a,n,c,e", function() {
 		var dance = document.createElement("VIDEO");
-		dance.setAttribute("src","/images/dance.mp4");
+		dance.setAttribute("src","images/dance.mp4");
 		document.getElementById("egg").appendChild(dance);
 		dance.loop = true;
 		dance.play();
 		}).listen();
 		</script>
 		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
-		<script src="/js/jquery.min.js"></script>
-		<script src="/js/skel.min.js"></script>
-		<script src="/js/skel-layers.min.js"></script>
-		<script src="/js/init.js"></script>
+		<script src="../js/jquery.min.js"></script>
+		<script src="../js/skel.min.js"></script>
+		<script src="../js/skel-layers.min.js"></script>
+		<script src="../js/init.js"></script>
 		<noscript>
-			<link rel="stylesheet" href="/css/skel.css" />
-			<link rel="stylesheet" href="/css/style.css" />
-			<link rel="stylesheet" href="/css/style-xlarge.css" />
+			<link rel="stylesheet" href="../css/skel.css" />
+			<link rel="stylesheet" href="../css/style.css" />
+			<link rel="stylesheet" href="../css/style-xlarge.css" />
 		</noscript>
 		<style type="text/css">
 		#egg {position:sticky; }
   		</style>
 	</head>
-	<body class="landing">
+	<body>
 
 		<!-- Header -->
-			<header id="header" class="alt">
-				<h1><strong><a href="/index.html">Andrew Pantuso</a></strong></h1>
+			<header id="header">
+				<h1><strong><a href="../index.html">Andrew Pantuso</a></strong></h1>
 				<nav id="nav">
 					<ul>
-						<li><a href="/index.html">Home</a></li>
-						<li><a href="/tags/ComputerScience.html">Computer Science</a></li>
-						<li><a href="/tags/Math.html">Math</a></li>
-						<li><a href="/resume.html">R&Eacutesum&Eacute</a></li>
+						<li><a href="../index.html">Home</a></li>
+						<li><a href="../tags/ComputerScience.html">ComputerScience</a></li>
+						<li><a href="../tags/Math.html">Math</a></li>
+                        <li><a href="../resume.html">R&Eacutesum&Eacute</a></li>
 					</ul>
 				</nav>
 			</header>
 
-		<!-- Banner -->
-			<section id="banner">
-				<h2>Applied Mathematics<br/> Computer Science</h2>
+		<!-- Main -->
+			<section id="main" class="wrapper">
+				<div class="container">
 					<div id="egg"></div>
+
+					<header class="major special">
+						<h2>2016-01-25-d3example</h2>
+					</header>
+
+					<a href="#" class="image fit"><img src="../images/2016-01-25-d3example.jpg" alt="Image not available" /></a>
+                        <div class="info">
+    Posted on January 25, 2016
+    
+</div>
+<div class="info tags">
+    
+    Tags: 
+    
+</div>
+
+
+
+				</div>
 			</section>
 
 		<!-- Footer -->
 			<footer id="footer">
 				<div class="container">
-					<ul class="icons">
+                    <ul class="icons">
 						<li><a href="https://github.com/Ajpantuso" class="icon fa-github"></a></li>
 						<li><a href="mailto:ajpantuso@gmail.com" class="icon fa-envelope"></a></li>
-						<li><a href="/feed.xml" class="icon fa-rss"></a></li>
+						<li><a href="../feed.xml" class="icon fa-rss"></a></li>
 					</ul>
 					<ul class="copyright">
 						<li>&copy; Andrew Pantuso 2015</li>
 						<li>image: <a href="http://www.bronsoloillustration.com/">Bronsolo Illustration</a></li>
 						<li>static-site generation: <a href="https://jaspervdj.be/hakyll">Hakyll</a></li>
-					</ul>
+                    </ul>
 				</div>
 			</footer>
 
