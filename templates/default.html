@@ -1,17 +1,15 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-<html lang="en" class="no-js">
+<!DOCTYPE HTML>
+<!--
+	Spatial by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
 	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>AJPantuso</title>
-		<meta name="description" content="A free HTML5/CSS3 template made exclusively for Codrops by Peter Finlan" />
-		<meta name="keywords" content="html5 template, css3, one page, animations, agency, portfolio, web design" />
-		<meta name="author" content="Peter Finlan" />
+		<title>$title$</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
 		<!--mathJax-->
 		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 		<!--egg.js-->
@@ -22,112 +20,73 @@
 		var egg = new Egg("w,o,r,k,o,u,t", function() {workout.play();
 		}).listen();
 		</script>
-		<!-- Bootstrap -->
-		<script src="/js/modernizr.custom.js"></script>
-		<link href="/css/bootstrap.min.css" rel="stylesheet">
-		<link href="/css/jquery.fancybox.css" rel="stylesheet">
-		<link href="/css/flickity.css" rel="stylesheet" >
-		<link href="/css/animate.css" rel="stylesheet">
-		<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-		<link href='http://fonts.googleapis.com/css?family=Nunito:400,300,700' rel='stylesheet' type='text/css'>
-		<link href="/css/styles.css" rel="stylesheet">
-		<link href="/css/queries.css" rel="stylesheet">
-		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-		<!--[if lt IE 9]>
-		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-		<![endif]-->
+		<script type="text/javascript">
+		var egg = new Egg("d,a,n,c,e", function() {
+		var dance = document.createElement("VIDEO");
+		dance.setAttribute("src","images/dance.mp4");
+		document.getElementById("egg").appendChild(dance);
+		dance.loop = true;
+		dance.play();
+		}).listen();
+		</script>
+		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+		<script src="/js/jquery.min.js"></script>
+		<script src="/js/skel.min.js"></script>
+		<script src="/js/skel-layers.min.js"></script>
+		<script src="/js/init.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="/css/skel.css" />
+			<link rel="stylesheet" href="/css/style.css" />
+			<link rel="stylesheet" href="/css/style-xlarge.css" />
+		</noscript>
+		<style type="text/css">
+		#egg {position:sticky; }
+  		</style>
 	</head>
 	<body>
-		<!--[if lt IE 7]>
-		<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-		<![endif]-->
-		<!-- open/close -->
-		<header>
-			<section class="hero">
-				<div class="texture-overlay"></div>
+
+		<!-- Header -->
+			<header id="header">
+				<h1><strong><a href="/index.html">Andrew Pantuso</a></strong></h1>
+				<nav id="nav">
+					<ul>
+						<li><a href="/index.html">Home</a></li>
+						<li><a href="/tags/ComputerScience.html">ComputerScience</a></li>
+						<li><a href="/tags/Math.html">Math</a></li>
+                        <li><a href="/resume.html">R&Eacutesum&Eacute</a></li>
+					</ul>
+				</nav>
+			</header>
+
+		<!-- Main -->
+			<section id="main" class="wrapper">
 				<div class="container">
-					<div class="row nav-wrapper">
-						<div class="col-md-6 col-sm-6 col-xs-6 text-left">
-							<a href="http://www.ajpantuso.com"><img style="width:50%; height:auto;" src="/images/sharp-logo.png" alt="Andrew J Pantuso"></a>
-						</div>
-						<div class="col-md-6 col-sm-6 col-xs-6 text-right navicon">
-							<a id="trigger-overlay" class="nav_slide_button nav-toggle" href="#"><span></span></a>
-						</div>
-					</div>
-					<div class="row hero-content">
-						<div class="col-md-12">
-							<h1 class="animated fadeInDown">Applied Mathematics and Computer Science</h1>
-							<a href="#content" class="learn-btn animated fadeInUp">Continue</a>
-						</div>
-					</div>
+					<div id="egg"></div>
+
+					<header class="major special">
+						<h2>$title$</h2>
+					</header>
+
+					<a href="#" class="image fit"><img src="/images/pic01.jpg" alt="" /></a>
+                        $body$
 				</div>
 			</section>
-		</header>
-		<section class="showcase" id="content">
-			<div class="showcase-wrap">
-				<div class="container">
-					<h1>$title$</h1>
-					$body$
-				</div>
-			</div>
-		</section>
 
-		<section class="contact" id="contact">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12 text-center wp4">
-						<h1>Questions?</h1>
-						<a href="/contact.html" class="download-btn">Contact</a>
-					</div>
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="container">
+                    <ul class="icons">
+						<li><a href="https://github.com/Ajpantuso" class="icon fa-github"></a></li>
+						<li><a href="mailto:ajpantuso@gmail.com" class="icon fa-envelope"></a></li>
+						<li><a href="www.ajpantuso.com/feed.xml" class="icon fa-rss"></a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy; Andrew Pantuso 2015</li>
+						<li>image: <a href="http://www.bronsoloillustration.com/">Bronsolo Illustration</a></li>
+						<li>static-site generation: <a href="https://jaspervdj.be/hakyll">Hakyll</a></li>
+                    </ul>
 				</div>
-			</div>
-		</section>
-		<footer>
-			<div class="container">
-				<div class="row">
-					<div class="col-md-5">
-						<h1 class="footer-logo">
-						<img style="width:50%; height:auto;" src="/images/sharp-logo-black.png" alt="Footer Logo">
-						</h1>
-						<p style="color:#000000">©2015 Andrew Pantuso</p>
-					</div>
-					<div class="col-md-7">
-						<ul class="footer-nav">
-							<li><a href="https://github.com/Ajpantuso?tab=repositories">
-                            <img src="/images/GitHub-Mark-32px.png" alt="GitHub" title="GitHub"></a></li>
-							<li><a href="mailto:ajpantuso@gmail.com"><img src="/images/32px-envelope.png" alt="E-mail" title="E-mail"></a></li>
-							<li><a href="/about.html">About</a></li>
-							<li><a href="#content">Main</a></li>
-							<li><a href="#contact">Contact</a></li>
-						</ul>
-					</div>
-				</div>
-				<p style="color:black;">Site proudly generated by <a href="http://jaspervdj.be/hakyll">Hakyll</a></p>
-			</div>
-		</footer>
-		<div class="overlay overlay-boxify">
-			<nav>
-				<ul>
-					<li><a href="/index.html">Home</a></li>
-					<li><a href="/Mathematics.html">Math</a></li>
-				</ul>
-				<ul>
-					<li><a href="/ComputerScience.html">Computer Science</a></li>
-					<li><a href="/about.html">About</a></li>
-				</ul>
-			</nav>
-		</div>
-		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-		<script src="/js/min/toucheffects-min.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-		<script src="/js/flickity.pkgd.min.js"></script>
-		<script src="/js/jquery.fancybox.pack.js"></script>
-		<!-- Include all compiled plugins (below), or include individual files as needed -->
-		<script src="/js/retina.js"></script>
-		<script src="/js/waypoints.min.js"></script>
-		<script src="/js/bootstrap.min.js"></script>
-		<script src="/js/min/scripts-min.js"></script>
+			</footer>
+
 	</body>
 </html>

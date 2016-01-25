@@ -1,0 +1,11 @@
+---
+title: Mathtest
+tags: Math
+author: Andrew Pantuso
+---
+
+Here is an example of \\(\\LaTeX\\)
+<!--more-->using Markdown.
+\\[ \\ln x = \\int_{-\\infty}^x \\frac 1 y \\, dy . \\]
+
+Hopefully that worked.
