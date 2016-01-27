@@ -87,3 +87,69 @@
 	});
 
 })(jQuery);
+
+$(function () {
+    $('.tlt').textillate({
+        minDisplayTime: 2000,
+        initialDelay: 0,
+        in: {
+            effect: 'fadeIn',
+            delayScale: 1.5,
+            delay:100,
+            shuffle: true,
+        },
+
+        out: {
+            effect: 'fadeOut',
+            delayScale: 1.5,
+            delay: 50,
+            shuffle: true
+        },
+
+        type: 'char'
+    });
+});
+
+$(function () {
+    $('.tlt2').textillate({
+        minDisplayTime: 2000,
+        initialDelay: 1600,
+        in: {
+            effect: 'fadeIn',
+            delayScale: 1.5,
+            delay:100,
+            shuffle: true
+        },
+
+        out: {
+            effect: 'fadeOut',
+            delayScale: 1.5,
+            delay: 50,
+            shuffle: true,
+        },
+
+        type: 'char'
+    });
+});
+
+$(function () {
+    $('.nametag').textillate({
+        minDisplayTime: 2000,
+        initialDelay: 2700,
+        in: {
+            effect: 'fadeInLeft',
+            delayScale: 1.5,
+            delay: 150,
+            reverse: true
+        },
+
+        out: {
+            effect: 'fadeOut',
+            delayScale: 1.5,
+            delay: 50,
+            shuffle: true,
+        },
+
+        type: 'char'
+    });
+});

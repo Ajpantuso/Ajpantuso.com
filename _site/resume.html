@@ -12,23 +12,6 @@
 		<meta name="keywords" content="" />
 		<!--mathJax-->
 		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-		<!--egg.js-->
-		<script type="text/javascript" src="https://cdn.rawgit.com/mikeflynn/egg.js/master/egg.min.js"></script>
-		<script type="text/javascript">
-		var workout = document.createElement("AUDIO");
-		workout.setAttribute("src","images/workout.mp3");
-		var egg = new Egg("w,o,r,k,o,u,t", function() {workout.play();
-		}).listen();
-		</script>
-		<script type="text/javascript">
-		var egg = new Egg("d,a,n,c,e", function() {
-		var dance = document.createElement("VIDEO");
-		dance.setAttribute("src","images/dance.mp4");
-		document.getElementById("egg").appendChild(dance);
-		dance.loop = true;
-		dance.play();
-		}).listen();
-		</script>
 		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
 		<script src="/js/jquery.min.js"></script>
 		<script src="/js/skel.min.js"></script>
@@ -39,9 +22,6 @@
 			<link rel="stylesheet" href="/css/style.css" />
 			<link rel="stylesheet" href="/css/style-xlarge.css" />
 		</noscript>
-		<style type="text/css">
-		#egg {position:sticky; }
-  		</style>
 	</head>
 	<body>
 
@@ -69,30 +49,33 @@
 
 					<!-- Text -->
 						<section>
-							<h3>Profile</h3>
+							<h3 class="resumecat">Profile</h3>
 							<p>Recent graduate seeking new problems to analyze with applied
                                mathematics techniques. Strong mathematics and computer
                                science background with a focus on analytical methods.</p>
 							<hr />
+                            <h3 class="resumecat">Education</h3>
                             <header>
                                 <h3>Bachelor of Science - Applied Mathematics</h3>
                                 <p><b>Fall 2015 - </b> The City University of New York, Brooklyn College</p>
                             </header>
-                            <h4>Coursework</h4>
+                            <h4>Coursework Includes:</h4>
                             <ul>
                                 <li>One Dimensional Dynamics</li>
                                 <li>Mathematical Modeling</li>
                                 <li>Numerical Analysis</li>
                                 <li>Statistics</li>
                             </ul>
-                            <h3>Recent Work Experience</h3>
+                            <hr />
+                            <h3 class="resumecat">Recent Work Experience</h3>
                             <header>
                                 <h3>Explorers Counselor</h3>
                                 <p><b>Summer 2014 - </b> Gatehill Day Camp</p>
                             </header>
                                 <p>Worked as a counselor focusing in programs in Science,
                                    Technology, and the Arts for children.</p>
-                            <h3>Computer Skills</h3>
+                            <hr />
+                            <h3 class="resumecat">Computer Skills</h3>
                                 <h4>Operating Systems</h4>
                                 <ul>
                                     <li>Microsoft Windows</li>
@@ -111,7 +94,8 @@
                                     <li>Latex</li>
                                     <li>Maple 18</li>
                                 </ul>
-                            <h3>Mathematics Skills</h3>
+                            <hr />
+                            <h3 class="resumecat">Mathematics Skills</h3>
                                 <ul>
                                     <li>
                                         Construction and analysis of both stochastic
