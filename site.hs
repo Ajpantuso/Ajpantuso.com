@@ -3,29 +3,34 @@
 import           Data.Monoid (mappend)
 import           Hakyll
 import qualified Data.Set as S
+import qualified Data.Map as M
 import           Text.Pandoc.Options
 --------------------------------------------------------------------------------
 main :: IO ()
 main = hakyll $ do
 
-    match "images/*" $ do
+    match "assets/fonts/*" $ do
         route   idRoute
         compile copyFileCompiler
 
-    match "css/*" $ do
+    match "assets/js/*" $ do
+        route idRoute
+        compile copyFileCompiler
+
+    match "assets/images/*" $ do
+        route idRoute
+        compile copyFileCompiler
+
+    match "assets/css/*" $ do
         route   idRoute
         compile compressCssCompiler
 
-    match "css/*/*" $ do
+    match "assets/css/images/overlay.png" $ do
         route   idRoute
         compile copyFileCompiler
 
-    match "fonts/*" $ do
-        route idRoute
-        compile copyFileCompiler
-
-    match "js/*" $ do
-        route idRoute
+    match "downloads/*" $ do
+        route   idRoute
         compile copyFileCompiler
 
     match "CNAME" $ do
@@ -35,7 +40,6 @@ main = hakyll $ do
     match "resume.html" $ do
         route idRoute
         compile copyFileCompiler
-
 
     tags <- buildTags "posts/*" (fromCapture "tags/*.html")
 
@@ -60,6 +64,19 @@ main = hakyll $ do
             >>= loadAndApplyTemplate "templates/post.html"    (postCtxWithTags tags)
             >>= loadAndApplyTemplate "templates/default.html" (postCtxWithTags tags)
             >>= relativizeUrls
+
+    match "posts.html" $ do
+        route idRoute
+        compile $ do
+            posts <- recentFirst =<< loadAll "posts/*"
+            let postsCtx =
+                    listField "posts" teaserCtx (return posts) `mappend`
+                    constField "title" "Posts"                `mappend`
+                    defaultContext
+
+            getResourceBody
+                >>= applyAsTemplate postsCtx
+                >>= relativizeUrls
 
     match "index.html" $ do
         route idRoute
@@ -102,7 +119,6 @@ feedConfiguration = FeedConfiguration
     , feedRoot = "http://ajpantuso.com"
 }
 
-
 pandocMathCompiler =
     let mathExtensions = [Ext_tex_math_dollars, Ext_tex_math_double_backslash,
                           Ext_latex_macros]
@@ -115,3 +131,13 @@ pandocMathCompiler =
     in pandocCompilerWith defaultHakyllReaderOptions writerOptions
 
 teaserCtx = teaserField "teaser" "content" `mappend` postCtx
+
+-- listContextWith :: Context String -> String -> Context a
+-- listContextWith ctx s = listField s ctx $ do
+--     identifier <- getUnderlying
+--     metadata <- getMetadata identifier
+--     let metas = maybe [] (map trim . splitAll ",") $ M.lookup s metadata
+--     return $ map (\x -> Item (fromFilePath x) x) metas
+--
+-- listContext :: String -> Context a
+-- listContext = listContextWith defaultContext

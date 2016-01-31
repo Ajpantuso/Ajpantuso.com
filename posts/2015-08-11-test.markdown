@@ -1,8 +1,8 @@
------
+---
 title: TEST
 author: Andrew Pantuso
 tags: ComputerScience
------
+---
 This is a test of markdown.
 <!--more-->
  I really don't know how it works so I'll be interested

@@ -1,10 +1,10 @@
 $for(posts)$
     <li>
-        <article class="post stub">
-            <header>
-                <h3><a href="$url$">$title$</a></h3>
-            </header>
-            <span class="timestamp">$date$</span>
-        </article>
+            <a href="$url$">$title$</a> - $date$
+            $if(teaser)$
+                $teaser$
+            $else$
+                ...
+            $endif$
     </li>
 $endfor$

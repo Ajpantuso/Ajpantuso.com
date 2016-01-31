@@ -16,32 +16,32 @@
 		<script type="text/javascript" src="https://cdn.rawgit.com/mikeflynn/egg.js/master/egg.min.js"></script>
 		<script type="text/javascript">
 		var workout = document.createElement("AUDIO");
-		workout.setAttribute("src","/images/workout.mp3");
+		workout.setAttribute("src","/assets/images/workout.mp3");
 		var egg = new Egg("w,o,r,k,o,u,t", function() {workout.play();
 		}).listen();
 		</script>
 		<script type="text/javascript">
 		var egg = new Egg("d,a,n,c,e", function() {
 		var dance = document.createElement("VIDEO");
-		dance.setAttribute("src","/images/dance.mp4");
+		dance.setAttribute("src","/assets/images/dance.mp4");
 		document.getElementById("egg").appendChild(dance);
 		dance.loop = true;
 		dance.play();
 		}).listen();
 		</script>
 		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
-		<script src="./js/jquery.min.js"></script>
-		<script src="./js/skel.min.js"></script>
-		<script src="./js/skel-layers.min.js"></script>
-		<script src="./js/init.js"></script>
-        <script src="./js/jquery.fittext.js"></script>
-        <script src="./js/jquery.lettering.js"></script>
-        <script src="./js/jquery.textillate.js"></script>
-		<link rel="stylesheet" href="./css/animate.css" />
+		<script src="./assets/js/jquery.min.js"></script>
+		<script src="./assets/js/skel.min.js"></script>
+		<script src="./assets/js/skel-layers.min.js"></script>
+		<script src="./assets/js/init.js"></script>
+        <script src="./assets/js/jquery.fittext.js"></script>
+        <script src="./assets/js/jquery.lettering.js"></script>
+        <script src="./assets/js/jquery.textillate.js"></script>
+		<link rel="stylesheet" href="./assets/css/animate.css" />
 		<noscript>
-			<link rel="stylesheet" href="./css/skel.css" />
-			<link rel="stylesheet" href="./css/style.css" />
-			<link rel="stylesheet" href="./css/style-xlarge.css" />
+			<link rel="stylesheet" href="./assets/css/skel.css" />
+			<link rel="stylesheet" href="./assets/css/style.css" />
+			<link rel="stylesheet" href="./assets/css/style-xlarge.css" />
 		</noscript>
 		<style type="text/css">
 		#egg {position:sticky; }
@@ -55,9 +55,9 @@
 				<nav id="nav">
 					<ul>
 						<li><a href="./index.html">Home</a></li>
-						<li><a href="./tags/ComputerScience.html">Computer Science</a></li>
-						<li><a href="./tags/Math.html">Math</a></li>
+						<li><a href="./posts.html">Posts</a></li>
 						<li><a href="./resume.html">R&Eacutesum&Eacute</a></li>
+						<li><a href="./index.html#about">About</a></li>
 					</ul>
 				</nav>
 			</header>
@@ -69,6 +69,43 @@
                 <h2 class="tlt2">Computer Science</h2>
 				<div id="egg"></div>
 			</section>
+        <!-- Recent Posts -->
+            <section id="posts">
+                <h2>Recent Posts</h2>
+                <ul>
+                    
+    <li>
+            <a href="./posts/2015-08-14-mathtest.html">Mathtest</a> - August 14, 2015
+            
+                <p>Here is an example of \(\LaTeX\) 
+            
+    </li>
+
+    <li>
+            <a href="./posts/2015-08-11-test.html">TEST</a> - August 11, 2015
+            
+                <p>This is a test of markdown. 
+            
+    </li>
+
+
+                </ul>
+            </section>
+        <!-- About -->
+            <section class="special" id="about">
+                <h2>About</h2>
+                <p>
+                    Welcome to my personal website. It is a place where I
+                    post any of my findings on mathematics or computer science.
+                    There may occasionaly be a post about some of my other interests
+                    such as whisky or music. Special credit goes to TEMPLATED for the
+                    website's <a href="http://templated.co/spatial">theme</a> and
+                    <a href="http://www.bronsoloillustration.com/">Ryan Brondolo</a>
+                    for the website's background as well as
+                    <a href="https://jaspervdj.be/hakyll">Hakyll</a> for the static site
+                    generator upon which this site is built.
+                </p>
+            </section>
 
 		<!-- Footer -->
 			<footer id="footer">
