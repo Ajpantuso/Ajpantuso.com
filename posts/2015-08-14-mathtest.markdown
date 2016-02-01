@@ -1,6 +1,7 @@
 ---
 title: Mathtest
 tags: Math
+photos: Mathtest.jpg
 author: Andrew Pantuso
 ---
 

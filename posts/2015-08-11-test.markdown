@@ -1,6 +1,7 @@
 ---
 title: TEST
 author: Andrew Pantuso
+photos: TEST.jpg, ComputerScience.jpg
 tags: ComputerScience
 ---
 This is a test of markdown.

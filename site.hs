@@ -1,9 +1,13 @@
 --------------------------------------------------------------------------------
 {-# LANGUAGE OverloadedStrings #-}
-import           Data.Monoid (mappend)
+import           Data.Monoid                 (mappend)
 import           Hakyll
+import           Data.List                   (intersperse)
 import qualified Data.Set as S
 import qualified Data.Map as M
+import           Text.Blaze.Html             (toHtml,toValue, (!))
+import qualified Text.Blaze.Html5            as H
+import qualified Text.Blaze.Html5.Attributes as A
 import           Text.Pandoc.Options
 --------------------------------------------------------------------------------
 main :: IO ()
@@ -41,7 +45,8 @@ main = hakyll $ do
         route idRoute
         compile copyFileCompiler
 
-    tags <- buildTags "posts/*" (fromCapture "tags/*.html")
+    photos <- buildPhotos "posts/*" (fromCapture "photos/*.html")
+    tags   <- buildTags "posts/*"   (fromCapture "tags/*.html")
 
     tagsRules tags $ \tag pattern -> do
         let title = tag
@@ -57,12 +62,24 @@ main = hakyll $ do
                 >>= loadAndApplyTemplate "templates/default.html" ctx
                 >>= relativizeUrls
 
+    tagsRules photos $ \tag pattern -> do
+        let title = tag
+        route idRoute
+        compile $ do
+            let ctx = constField "title" title
+                    `mappend` defaultContext
+
+            makeItem ""
+                >>= loadAndApplyTemplate "templates/photo.html" ctx
+                >>= loadAndApplyTemplate "templates/default.html" ctx
+                >>= relativizeUrls
+
     match "posts/*" $ do
         route $ setExtension "html"
         compile $ pandocMathCompiler
             >>= saveSnapshot "content"
-            >>= loadAndApplyTemplate "templates/post.html"    (postCtxWithTags tags)
-            >>= loadAndApplyTemplate "templates/default.html" (postCtxWithTags tags)
+            >>= loadAndApplyTemplate "templates/post.html"    (postCtxWithPhotosAndTags photos tags)
+            >>= loadAndApplyTemplate "templates/default.html" (postCtxWithPhotosAndTags photos tags)
             >>= relativizeUrls
 
     match "posts.html" $ do
@@ -107,8 +124,13 @@ postCtx =
     dateField "date" "%B %e, %Y" `mappend`
     defaultContext
 
+--Add Tags and Photos to Post Metadata and make accessible with keys
 postCtxWithTags :: Tags -> Context String
 postCtxWithTags tags = tagsField "tags" tags `mappend` postCtx
+
+postCtxWithPhotosAndTags :: Tags -> Tags -> Context String
+postCtxWithPhotosAndTags photos tags = photosField "photos" photos
+                            `mappend` postCtxWithTags tags
 
 feedConfiguration :: FeedConfiguration
 feedConfiguration = FeedConfiguration
@@ -132,12 +154,19 @@ pandocMathCompiler =
 
 teaserCtx = teaserField "teaser" "content" `mappend` postCtx
 
--- listContextWith :: Context String -> String -> Context a
--- listContextWith ctx s = listField s ctx $ do
---     identifier <- getUnderlying
---     metadata <- getMetadata identifier
---     let metas = maybe [] (map trim . splitAll ",") $ M.lookup s metadata
---     return $ map (\x -> Item (fromFilePath x) x) metas
---
--- listContext :: String -> Context a
--- listContext = listContextWith defaultContext
+--Modified "Tag" functions to look for and build photo metadata and keys
+getPhotos :: MonadMetadata m => Identifier -> m [String]
+getPhotos identifier = do
+    metadata <- getMetadata identifier
+    return $ maybe [] (map trim . splitAll ",") $ M.lookup "photos" metadata
+
+buildPhotos :: MonadMetadata m => Pattern -> (String -> Identifier) -> m Tags
+buildPhotos = buildTagsWith getPhotos
+
+photosField :: String -> Tags -> Context a
+photosField = tagsFieldWith getPhotos simpleRenderLink (mconcat . intersperse ", ")
+
+simpleRenderLink :: String -> (Maybe FilePath) -> Maybe H.Html
+simpleRenderLink _ Nothing           = Nothing
+simpleRenderLink tag (Just filePath) =
+    Just $ H.a ! A.href (toValue $ toUrl filePath) $ toHtml tag
