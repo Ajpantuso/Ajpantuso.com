@@ -1202,11 +1202,12 @@
 
     #posts {
 		padding: 4em 0 2em 0;
-        text-align: center;
+    text-align: none;
+		font-size: 16pt;
     }
 
     #posts ul{
-        list-style-type: none;
+        list-style-type: lower-greek;
     }
 
 	#posts a {
@@ -1229,4 +1230,10 @@
         color: #1d385b;
         font-size: 20pt;
         text-decoration: none;
+    }
+
+/* about section */
+
+    #about {
+        padding: 3em 6em 0 6em;
     }
