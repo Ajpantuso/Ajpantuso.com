@@ -1,7 +1,6 @@
 @charset "UTF-8";
 @import url(font-awesome.min.css);
 @import "http://fonts.googleapis.com/css?family=Raleway:400,700";
-
 /*
 	Spatial by TEMPLATED
 	templated.co @templatedco
@@ -143,7 +142,7 @@
 
 		pre code {
 			display: block;
-			line-height: 1.75em;
+			/*line-height: 1.75em;*/
 			padding: 1em 1.5em;
 			overflow-x: auto;
 		}

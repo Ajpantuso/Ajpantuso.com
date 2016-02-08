@@ -82,6 +82,12 @@ main = hakyll $ do
             >>= loadAndApplyTemplate "templates/default.html" (postCtxWithPhotosAndTags photos tags)
             >>= relativizeUrls
 
+    match "404.md" $ do
+        route $ setExtension "html"
+        compile $ pandocCompiler
+            >>= loadAndApplyTemplate "templates/default.html" (postCtxWithPhotosAndTags photos tags)
+            >>= relativizeUrls
+
     match "posts.html" $ do
         route idRoute
         compile $ do
