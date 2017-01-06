@@ -45,7 +45,7 @@ main = hakyll $ do
         route idRoute
         compile copyFileCompiler
 
-    photos <- buildPhotos "posts/*" (fromCapture "photos/*.html")
+    --photos <- buildPhotos "posts/*" (fromCapture "photos/*.html")
     tags   <- buildTags "posts/*"   (fromCapture "tags/*.html")
 
     tagsRules tags $ \tag pattern -> do
@@ -61,7 +61,7 @@ main = hakyll $ do
                 >>= loadAndApplyTemplate "templates/tag.html" ctx
                 >>= loadAndApplyTemplate "templates/default.html" ctx
                 >>= relativizeUrls
-
+{--
     tagsRules photos $ \tag pattern -> do
         let title = tag
         route idRoute
@@ -73,19 +73,19 @@ main = hakyll $ do
                 >>= loadAndApplyTemplate "templates/photo.html" ctx
                 >>= loadAndApplyTemplate "templates/default.html" ctx
                 >>= relativizeUrls
-
+--}
     match "posts/*" $ do
         route $ setExtension "html"
         compile $ pandocMathCompiler
             >>= saveSnapshot "content"
-            >>= loadAndApplyTemplate "templates/post.html"    (postCtxWithPhotosAndTags photos tags)
-            >>= loadAndApplyTemplate "templates/default.html" (postCtxWithPhotosAndTags photos tags)
+            >>= loadAndApplyTemplate "templates/post.html"    (postCtxWithTags tags)
+            >>= loadAndApplyTemplate "templates/default.html" (postCtxWithTags tags)
             >>= relativizeUrls
 
     match "404.md" $ do
         route $ setExtension "html"
         compile $ pandocCompiler
-            >>= loadAndApplyTemplate "templates/default.html" (postCtxWithPhotosAndTags photos tags)
+            >>= loadAndApplyTemplate "templates/default.html" (postCtxWithTags tags)
             >>= relativizeUrls
 
     match "posts.html" $ do
@@ -134,10 +134,11 @@ postCtx =
 postCtxWithTags :: Tags -> Context String
 postCtxWithTags tags = tagsField "tags" tags `mappend` postCtx
 
+{--
 postCtxWithPhotosAndTags :: Tags -> Tags -> Context String
 postCtxWithPhotosAndTags photos tags = photosField "photos" photos
                             `mappend` postCtxWithTags tags
-
+--}
 feedConfiguration :: FeedConfiguration
 feedConfiguration = FeedConfiguration
     { feedTitle = "AJPantuso"
@@ -161,6 +162,7 @@ pandocMathCompiler =
 teaserCtx = teaserField "teaser" "content" `mappend` postCtx
 
 --Modified "Tag" functions to look for and build photo metadata and keys
+{--
 getPhotos :: MonadMetadata m => Identifier -> m [String]
 getPhotos identifier = do
     metadata <- getMetadata identifier
@@ -176,3 +178,4 @@ simpleRenderLink :: String -> (Maybe FilePath) -> Maybe H.Html
 simpleRenderLink _ Nothing           = Nothing
 simpleRenderLink tag (Just filePath) =
     Just $ H.a ! A.href (toValue $ toUrl filePath) $ toHtml tag
+--}
