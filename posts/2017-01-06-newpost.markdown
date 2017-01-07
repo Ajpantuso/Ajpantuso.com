@@ -1,0 +1,52 @@
+---
+title: Newpost Script
+author: Andrew Pantuso
+photos: 
+tags: ComputerScience
+---
+
+This script generates new posts for this site.
+<!--more-->
+
+I generated this post with this script. 
+
+## Script
+
+``` { .bash .numberLines }
+#!/bin/bash
+#
+# Name: newpost
+# Author: Andrew Pantuso
+# Description:
+# Generates header for new markdown posts 
+
+err() {
+  echo "[$(date +'%Y-%m-%d %T %z')]: $@" >&2
+}
+
+main() {
+  if [[ $# -lt 1 ]]; then
+      err "Error: File name not given"
+      exit
+  fi
+  
+  local filename="$(date +'%Y-%m-%d')-$1.markdown"
+
+cat <<EOF > "${filename}"
+---
+title:
+author: Andrew Pantuso
+photos: 
+tags:
+---
+
+TEASER
+<!--more-->
+BODY
+EOF
+
+}
+
+main "$@"
+```
+---

@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>ComputerScience</title>
+		<title>Newpost Script</title>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content />
 		<meta name="keywords" content />
@@ -49,34 +49,96 @@
 			<section id="main" class="wrapper">
 				<div class="container">
 					<header class="major special">
-						<h2>ComputerScience</h2>
+						<h2>Newpost Script</h2>
 					</header>
-          <a href="../tags/ComputerScience.html" class="image fit"><img src="../assets/images/ComputerScience.jpg" alt="Image not available" /></a>
-<ul>
+          <div class="info">
+    Posted on January  6, 2017
+    
+      by Andrew Pantuso
+    
+</div>
+<div class="info tags">
+    
+      Tags: <a href="../tags/ComputerScience.html">ComputerScience</a>
+    
+    <br>
+    
+</div>
+<br>
+<p>This script generates new posts for this site. <!--more--></p>
+<p>I generated this post with this script.</p>
+<h2 id="script">Script</h2>
+<div class="sourceCode"><table class="sourceCode bash numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+</pre></td><td class="sourceCode"><pre><code class="sourceCode bash"><span class="co">#!/bin/bash</span>
+<span class="co">#</span>
+<span class="co"># Name: newpost</span>
+<span class="co"># Author: Andrew Pantuso</span>
+<span class="co"># Description:</span>
+<span class="co"># Generates header for new markdown posts </span>
+
+<span class="fu">err()</span> <span class="kw">{</span>
+  <span class="bu">echo</span> <span class="st">&quot;[</span><span class="va">$(</span><span class="fu">date</span> +<span class="st">'%Y-%m-%d %T %z'</span><span class="va">)</span><span class="st">]: </span><span class="va">$@</span><span class="st">&quot;</span> <span class="op">&gt;&amp;2</span>
+<span class="kw">}</span>
+
+<span class="fu">main()</span> <span class="kw">{</span>
+  <span class="kw">if [[</span> <span class="va">$#</span> <span class="ot">-lt</span> 1<span class="kw"> ]]</span>; <span class="kw">then</span>
+      <span class="ex">err</span> <span class="st">&quot;Error: File name not given&quot;</span>
+      <span class="bu">exit</span>
+  <span class="kw">fi</span>
   
-    <li>
-      <a href="../posts/2017-01-06-projdir.html">Project Directory Script</a> - January  6, 2017
-      
-          <p>Here is a script for creating new Project Directories 
-      
-    </li>
+  <span class="bu">local</span> <span class="va">filename=</span><span class="st">&quot;</span><span class="va">$(</span><span class="fu">date</span> +<span class="st">'%Y-%m-%d'</span><span class="va">)</span><span class="st">-</span><span class="va">$1</span><span class="st">.markdown&quot;</span>
 
-    <li>
-      <a href="../posts/2017-01-06-newscript.html">Newscript Script</a> - January  6, 2017
-      
-          <p>Here is a script for generating a script template. 
-      
-    </li>
+<span class="fu">cat</span> &lt;&lt;EOF &gt; &quot;<span class="va">${filename}</span>&quot;
+---
+title:
+autho<span class="op">r</span>: <span class="ex">Andrew</span> Pantuso
+photos: 
+tags:
+---
 
-    <li>
-      <a href="../posts/2017-01-06-newpost.html">Newpost Script</a> - January  6, 2017
-      
-          <p>This script generates new posts for this site. 
-      
-    </li>
+TEASER
+&lt;!--more--&gt;
+BODY
+EOF
 
+}
 
-</ul>
+main &quot;<span class="va">$@</span>&quot;</code></pre></td></tr></table></div>
+<hr />
 
 				</div>
 			</section>

@@ -1,0 +1,94 @@
+---
+title: Project Directory Script
+author: Andrew Pantuso
+photos:
+tags: ComputerScience
+---
+Here is a script for creating new Project Directories
+<!--more-->
+It can easily be modified to create more or less directories within the target project directory.
+The secure [-s] option will change the permissions of the project directory to protect it from others.
+
+## Script
+
+``` { .bash .numberLines }
+#!/bin/bash
+
+###################################################
+#################### projDir ######################
+###################################################
+#Inputs:                                          #
+#name - The name of the project directory         #
+#[dir] - optional target directory                #
+#Output:                                          #
+#Project directory with appropriate subdirectories#
+###################################################
+
+function helpScript {
+cat<<EOF
+projDir creates a project directory in a target directory
+or the current directory if no second argument given.
+Within the project directory the obj, rel, src, and test
+directories are created. 
+
+Options:
+
+-s  secures the project directory and sub-directories
+    with the following permissions rwxrw----
+
+EOF
+}
+
+secureFlag=false
+
+while getopts ":hs" opt ; do
+        case $opt in
+            h) helpScript 
+               exit 0 ;;
+            s) secureFlag=true ;;
+            \?) echo "Invalid option: -$OPTARG" >&2
+                echo "Usage: `basename $0` [OPTION] NAME [DIR]"
+                echo "Try `basename $0` -h for help"
+                exit 1 ;;
+        esac
+done
+            
+shift $((OPTIND-1))
+
+if [ $# -lt 1 ] ; then
+    echo "Usage: `basename $0` [OPTION] NAME [DIR]"
+    echo "Try `basename $0` -h for help"
+    exit 2 
+fi
+
+if [ -z $2 ] ; then
+    targetDir=$(pwd)
+else
+    targetDir=$2
+fi
+
+name=$1
+cd $targetDir
+
+while [ -e $name ] && [ -d $name ]
+do
+    echo "$name already exists"
+    read -p "Choose a different name(y/n): " ans
+    case $ans in
+        [yY]*) 
+            echo "Please enter a new name"
+            read name ;;
+            *) exit 3 ;;
+    esac
+done
+
+mkdir $name
+cd $name
+mkdir src obj rel test
+if $secureFlag ; then
+    cd ..
+    chmod 760 -R $name
+fi
+exit 0
+```
+---
